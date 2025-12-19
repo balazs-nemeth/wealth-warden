@@ -4,47 +4,52 @@ This file provides guidance to AI coding agents like Claude Code (claude.ai/code
 
 ## Project Overview
 
-This is a frontend application that uses React 18 with TypeScript.
+**wealth-warden** is an AI-developed companion to manage investment decisions and portfolios. This is a React 18 + TypeScript frontend application currently in initial setup phase.
 
-## Commands
+## Current State
 
-### Development
+The project is in **early initialization**. Only configuration files exist:
 
-| Command  | Purpose                       |
-| -------- | ----------------------------- |
-| `npm run | Start dev server (hot reload) |
+- TypeScript configuration ([ui/tsconfig.json](ui/tsconfig.json))
+- ESLint TypeScript config ([.github/agents/tsconfig.eslint.json](.github/agents/tsconfig.eslint.json))
+- App metadata ([.github/agents/app.config.json](.github/agents/app.config.json))
 
-### Testing & Quality
+No package.json, source code, or build system has been set up yet.
 
-| Command           | Purpose                |
-| ----------------- | ---------------------- |
-| `npm run lint`    | Run ESLint             |
-| `npm run test:ui` | Run UI component tests |
-
-## Architecture
+## Planned Architecture
 
 ```
 ui/
-├── main.tsx              # App entry point, sets up AppRoot + BrowserRouter
+├── main.tsx              # App entry point (not yet created)
 ├── app/
-│   ├── App.tsx           # Main layout with Page component and Routes
+│   ├── App.tsx           # Main layout with routing (not yet created)
 │   ├── components/       # Reusable UI components
 │   ├── hooks/            # Custom React hooks
 │   ├── pages/            # Route page components
 │   ├── types/            # TypeScript type definitions
 │   └── utils/            # Utility functions
-└── assets/               # Static assets (images)
-api/
-└── types/                # Shared API type definitions
+└── assets/               # Static assets
 ```
 
-## Configuration
+## Configuration Files
 
-- `app.config.json` - App metadata
-- `tsconfig.eslint.json` - TypeScript config for ESLint
-- `ui/tsconfig.json` - TypeScript config for UI code
+- [.github/agents/app.config.json](.github/agents/app.config.json) - App metadata (name, version, description)
+- [.github/agents/tsconfig.eslint.json](.github/agents/tsconfig.eslint.json) - TypeScript config for ESLint
+- [ui/tsconfig.json](ui/tsconfig.json) - TypeScript config for UI code
+
+## Development Setup (To Be Completed)
+
+This project needs the following to be initialized:
+
+1. **package.json** - Define dependencies (React 18, TypeScript, Vite/Webpack, testing framework)
+2. **Build system** - Set up bundler (Vite recommended for React + TypeScript)
+3. **Source files** - Create initial UI components and app structure
+4. **Testing** - Set up testing framework (Vitest/Jest + React Testing Library)
+5. **Linting** - Configure ESLint and Prettier
 
 ## Quality Standards
+
+Once the project is initialized, the following standards apply:
 
 ### Logging Standards
 
@@ -112,28 +117,27 @@ All logs MUST use a consistent prefix: `[ComponentName]` (e.g., `[BlogFeed]`)
 
 ### Test Coverage Requirements
 
-| Code Type                                | Minimum Coverage |
-| ---------------------------------------- | ---------------- |
-| Serverless functions with business logic | 80%              |
-| UI components                            | 70%              |
-| Utility/helper functions                 | 90%              |
+| Code Type                | Minimum Coverage |
+| ------------------------ | ---------------- |
+| UI components            | 80%              |
+| Utility/helper functions | 90%              |
 
 ### QA Validation Checklist
 
 Before marking a story as **Done**, ensure:
 
-1. **Tests pass**: `npm run test:api` executes without failures
+1. **Tests pass**: All test suites execute without failures
 2. **Build succeeds**: `npm run build` completes without errors
-3. **Lint passes**: `npm run lint` on `ui/` directory passes
+3. **Lint passes**: `npm run lint` passes without errors
 4. **Coverage met**: Test coverage meets or exceeds targets above
 5. **All ACs tested**: Each Acceptance Criteria has corresponding test coverage
 6. **Edge cases covered**: Error handling, boundary conditions, and failure scenarios are tested
 
 ### Test File Locations
 
-| Test Type               | Location                    | Command           |
-| ----------------------- | --------------------------- | ----------------- |
-| UI component/hook tests | `ui/app/**/*.test.{ts,tsx}` | `npm run test:ui` |
+| Test Type               | Location                    |
+| ----------------------- | --------------------------- |
+| UI component/hook tests | `ui/app/**/*.test.{ts,tsx}` |
 
 ## Agent Tools
 
